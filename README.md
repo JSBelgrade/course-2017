@@ -15,4 +15,10 @@ TBA
 
 ## Class 2 -- functions
 
-TBA
+### Presentations
+
+- [Class 2 presentation](./presentations/class2.pdf)
+
+### Homework
+
+1. Factorial function (see slide 55)
