@@ -9,7 +9,7 @@ describe('Factorial function', function() {
   });
 
   it('should return -40 if Celsius value is -40', function() {
-    assert.equal(celsiusToFahrenheit(40), 40);
+    assert.equal(celsiusToFahrenheit(-40), -40);
   });
 
   it('should return 32 if Celsius value is 0', function() {
