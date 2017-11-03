@@ -42,3 +42,13 @@ Create HTML and CSS for calculator. Recommended design: [https://dribbble.com/sh
 ### Code
 
 Calculator project (HTML, CSS and JavaScript) is available [here](exercises/class4).
+
+## Class 5 - DOM & Forms
+
+### Presentations
+
+- [Class 5 presentation](./presentations/class5.pdf)
+
+### Code
+
+Calculator project (HTML, CSS and JavaScript) is available [here](exercises/class5).

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forms 5</title>
+</head>
+<body>
+    <form>
+      <label for="email">Email</label>
+      <input id="email"/>
+      <label for="password">Password</label>
+
+      <button type="submit" onsubmit="displayData()" onclick="displayData()">Submit</button>
+    </form>
+
+    <input id="password" type="password" />
+
+<script type="text/javascript">
+function displayData(){
+  let emailElem = document.getElementById('email')
+  let passwordElem = document.getElementById('password')
+
+  alert(emailElem.value + ' ' + passwordElem.value);
+}
+
+</script>
+</body>
+</html>
