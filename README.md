@@ -52,3 +52,8 @@ Calculator project (HTML, CSS and JavaScript) is available [here](exercises/clas
 ### Code
 
 Calculator project (HTML, CSS and JavaScript) is available [here](exercises/class5).
+
+### Homework
+1. Fix the calculator bug
+2. Finish the +,-,/,*
+3. Do the Login form per design - practice example: [https://dribbble.com/shots/2125879-Day-001-Login-Form](https://dribbble.com/shots/2125879-Day-001-Login-Form)
