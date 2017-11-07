@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form, .sign-up-form {
+    width: 200px;
+    padding: 20px;
+    background-color: #5E6EEB;
+    border-radius: 3px;
+}
+
+.login-form input, .sign-up-form input {
+    margin-top: 15px;
+}
+
+.form-title {
+    margin-top: 15px;
+    color: whitesmoke;
+}
+
+.action-btn {
+    display: block;
+    background-color: #6DCB9F;
+    margin-top: 20px;
+    padding: 15px 10px;
+}
