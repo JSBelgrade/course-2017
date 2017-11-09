@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attendees</title>
+  <link rel="stylesheet" href="course.css" />
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Roboto" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+
+  <div class="navigation">
+    <ul class="navigation-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="topics.html">Topics</a></li>
+      <li><a href="attendees.html">Attendees</a></li>
+    </ul>
+
+    <div class="credentials">
+      <span id="first-name-cred"></span>
+      <span id="last-name-cred"></span>
+      <img id="image" />
+    </div>
+  </div>
+
+
+  <div class="content">
+
+    <h3>Topics covered</h3>
+
+    <button onclick="showAddAttendeeForm()">Add Attendee</button>
+
+    <table>
+      <tr class="header-row">
+        <th class="attendee-header">First Name</th>
+        <th class="attendee-header">Last Name</th>
+        <th class="attendee-header">Email</th>
+        <th class="attendee-header">Date of Birth</th>
+      </tr>
+      <tr class="attendee-row">
+        <td>
+          Dragan
+        </td>
+        <td>
+          Kojic Keba
+        </td>
+        <td>
+          email@mailinator.com
+        </td>
+        <td>
+          1600
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <div id="add-attendee" style="display: none;">
+      <form >
+
+        <input class="attendee-entry" type="text" id="first-name-entry"/>
+        <input class="attendee-entry" type="text" id="last-name-entry"/>
+        <input class="attendee-entry" type="email" id="email-entry"/>
+        <input class="attendee-entry" type="date" id="date-entry"/>
+
+      </form>
+      <button onclick="addAttendee()">Add</button>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+
+<script type="text/javascript" src="course.js"></script>
+</body>
+</html>
