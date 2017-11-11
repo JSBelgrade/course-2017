@@ -53,8 +53,8 @@ function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
    if (foundTables.length < 1) throw 'No table found';
 
    let table = foundTables[0];
-   table.innerHTML = '';
    let tr = document.createElement('tr');
+   tr.className = 'attendee-row';
    let firstNameCell = document.createElement('td'),
      firstNameText = document.createTextNode(firstName);
   firstNameCell.appendChild(firstNameText);

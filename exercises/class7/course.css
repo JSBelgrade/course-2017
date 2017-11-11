@@ -1,6 +1,6 @@
 body {
-    background-color: #525FF0;
-    font-family: 'Roboto', sans-serif;
+    background-color: #3A4EBC;
+    font-family: 'Montserrat', sans-serif;
     color: whitesmoke;
 }
 
@@ -32,15 +32,88 @@ body {
 .navigation-menu li a, .navigation-menu li a:hover,
 .navigation-menu li a:visited{
     text-decoration: none;
-    color: white;
+    color: #AFB6F4;
     text-transform: uppercase;
 }
 
+
+.navigation-menu li a.current {
+    color: #DFE1FB;
+}
+
 .content {
-    background-color: #5C67FA;
+
+}
+
+#attendee-content {
+    background-color: #5666E1;
     border-radius: 6px;
+    width: 700px;
+}
+
+#attendee-content-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+#attendee-content #title {
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+#attendee-content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#attendee-content table td {
+    border-top: 2px solid #3A4EBC;
+    text-align: center;
+}
+
+#attendee-content table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+#attendee-content table tr:last-child td:last-child  {
+    border-bottom-right-radius: 10px;
 }
 
 #add-attendee input{
     display: block;
+}
+
+.header-row {
+    color: #AFB6F4;
+    background-color: #5666E1;
+    border-top: 2px solid #3A4EBC;
+}
+
+.header-row .attendee-header {
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+table .attendee-row {
+    background-color: #4D5ED4;
+    padding: 20px 10px;
+}
+
+table .attendee-row td {
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+.action-btn {
+    background-color: #6DCCA2;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 40px;
+    width: 150px;
 }

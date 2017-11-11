@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Attendees</title>
   <link rel="stylesheet" href="course.css" />
-  <link href="https://fonts.googleapis.com/css?family=Barlow|Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
     <ul class="navigation-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="topics.html">Topics</a></li>
-      <li><a href="attendees.html">Attendees</a></li>
+      <li><a href="attendees.html" class="current">Attendees</a></li>
     </ul>
 
     <div class="credentials">
@@ -27,32 +27,37 @@
 
   <div class="content">
 
-    <h3>Topics covered</h3>
+    <div id="attendee-content">
+      <div id="attendee-content-action">
+        <div id="title">Attendees List</div>
+        <button class="action-btn" onclick="showAddAttendeeForm()">Add Attendee</button>
+      </div>
 
-    <button onclick="showAddAttendeeForm()">Add Attendee</button>
+      <table>
+        <tr class="header-row">
+          <th class="attendee-header">First Name</th>
+          <th class="attendee-header">Last Name</th>
+          <th class="attendee-header">Email</th>
+          <th class="attendee-header">Date of Birth</th>
+        </tr>
+        <tr class="attendee-row">
+          <td>
+            Dragan
+          </td>
+          <td>
+            Kojic Keba
+          </td>
+          <td>
+            email@mailinator.com
+          </td>
+          <td>
+            1600
+          </td>
+        </tr>
+      </table>
+    </div>
 
-    <table>
-      <tr class="header-row">
-        <th class="attendee-header">First Name</th>
-        <th class="attendee-header">Last Name</th>
-        <th class="attendee-header">Email</th>
-        <th class="attendee-header">Date of Birth</th>
-      </tr>
-      <tr class="attendee-row">
-        <td>
-          Dragan
-        </td>
-        <td>
-          Kojic Keba
-        </td>
-        <td>
-          email@mailinator.com
-        </td>
-        <td>
-          1600
-        </td>
-      </tr>
-    </table>
+
 
     <br>
 
