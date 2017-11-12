@@ -83,5 +83,20 @@ function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
 }
 
 
+// EXAMPLE XHR
+function sendExampleXHR(){
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', '/server', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == XMLHttpRequest.DONE) {
+      console.log(xhr.responseText)
+    }
+  }
+  xhr.send(JSON.stringify({icecreamId: 123, name: 'chocolate'}));
+}
+
+
 setupCredentials();
 setupTable();
