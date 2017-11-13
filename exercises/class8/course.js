@@ -21,7 +21,20 @@ function setupCredentials(){
   imageElem.src = imageUrl;
 }
 
-function setupTable(){
+function cleanTable(){
+  let foundTables = document.getElementsByTagName('table');
+  if (foundTables.length < 1) return;
+
+  let table = foundTables[0];
+  let rows = table.getElementsByTagName('tr');
+  for(let rIndex = 0; rIndex<rows.length;rIndex++){
+    if (rIndex == 0) continue;
+    table.deleteRow(rIndex)
+  }
+}
+
+function renderTable(attendees){
+  cleanTable();
   for (let i = 0; i < attendees.length; i++){
     let attendee = attendees[i];
     addAttendeeToTable(attendee.firstName, attendee.lastName, attendee.email, attendee.dateBirth)
@@ -50,7 +63,7 @@ function addAttendee(){
 
 function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
    let foundTables = document.getElementsByTagName('table');
-   if (foundTables.length < 1) throw 'No table found';
+   if (foundTables.length < 1) return;
 
    let table = foundTables[0];
    let tr = document.createElement('tr');
@@ -82,21 +95,52 @@ function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
 
 }
 
+setupCredentials();
 
-// EXAMPLE XHR
-function sendExampleXHR(){
+
+// How to optimize
+function sendRequest(httpRequestType, url, data, callback) {
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/server', true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
+  let requestData = null;
+
+  xhr.open(httpRequestType, url, true);
+  if (httpRequestType == 'POST' || httpRequestType == 'PUT') {
+    requestData = JSON.stringify(data);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+  }
 
   xhr.onreadystatechange = function() {
     if(xhr.readyState == XMLHttpRequest.DONE) {
-      console.log(xhr.responseText)
+      callback(JSON.parse(xhr.responseText))
     }
-  }
-  xhr.send(JSON.stringify({icecreamId: 123, name: 'chocolate'}));
+  };
+  xhr.send(requestData);
 }
 
+function sendExampleXHR() {
+  let attendee = { firstName: 'ime', lastName: 'prezime', email: 'aa@email.com', dateBirth: '12-10-1988' };
+  let url = 'https://3uc5taw99i.execute-api.us-east-1.amazonaws.com/latest/attendees';
 
-setupCredentials();
-setupTable();
+  sendRequest('POST', url, attendee, function(response){
+      alert(response)
+      alert('JEL JASNO?')
+  })
+}
+
+function getAttendees(callback) {
+  let url = 'https://3uc5taw99i.execute-api.us-east-1.amazonaws.com/latest/attendees';
+
+  return sendRequest('GET', url, undefined, function(response){
+    //alert(response)
+    //alert('Jesu stigli?')
+    callback(response)
+  })
+
+}
+
+window.onload = function (){
+  getAttendees(function (returnedAttendees){
+    attendees = returnedAttendees;
+    renderTable(attendees);
+  })
+}
