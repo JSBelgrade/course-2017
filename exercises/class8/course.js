@@ -1,6 +1,8 @@
 let firstName = 'Test'
 let lastName = 'Testi3434c'
 let imageUrl = 'https://cdn.dribbble.com/users/78637/avatars/small/radium_clear.png?1348170349'
+let baseURL = 'https://3uc5taw99i.execute-api.us-east-1.amazonaws.com/latest/attendees';
+
 
 let attendees = [
   { firstName: 'Test', lastName: 'Testic', email: 'email@mailinator.com', dateBirth: '11-11-2111' },
@@ -26,7 +28,7 @@ function cleanTable(){
   if (foundTables.length < 1) return;
 
   let table = foundTables[0];
-  let rows = table.getElementsByTagName('tr');
+  let rows = $('tr');
   for(let rIndex = 0; rIndex<rows.length;rIndex++){
     if (rIndex == 0) continue;
     table.deleteRow(rIndex)
@@ -37,7 +39,7 @@ function renderTable(attendees){
   cleanTable();
   for (let i = 0; i < attendees.length; i++){
     let attendee = attendees[i];
-    addAttendeeToTable(attendee.firstName, attendee.lastName, attendee.email, attendee.dateBirth)
+    addAttendeeToTable(attendee, i)
   }
 }
 
@@ -55,13 +57,13 @@ function addAttendee(){
   let date = document.getElementById('date-entry').value;
 
   attendees.push({ firstName: first, lastName: lastName, email: email, dateBirth: date })
-  addAttendeeToTable(first, lastName, email, date);
+  addAttendeeToTable({ firstName: first, lastName: lastName, email: email, dateBirth: date });
 
   let formElem = document.getElementById('add-attendee');
   formElem.style.display = 'none';
 }
 
-function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
+function addAttendeeToTable(attendee, attendeeIndex) {
    let foundTables = document.getElementsByTagName('table');
    if (foundTables.length < 1) return;
 
@@ -69,26 +71,49 @@ function addAttendeeToTable(firstName, lastName, email, dateOfBirth) {
    let tr = document.createElement('tr');
    tr.className = 'attendee-row';
    let firstNameCell = document.createElement('td'),
-     firstNameText = document.createTextNode(firstName);
+     firstNameText = document.createTextNode(attendee.firstName);
   firstNameCell.appendChild(firstNameText);
 
    let lastNameCell = document.createElement('td'),
-     lastNameText = document.createTextNode(lastName);
+     lastNameText = document.createTextNode(attendee.lastName);
   lastNameCell.appendChild(lastNameText);
 
    let emailCell = document.createElement('td'),
-     emailText = document.createTextNode(email);
+     emailText = document.createTextNode(attendee.email);
    emailCell.appendChild(emailText);
 
    let dateCell = document.createElement('td'),
-      dateText = document.createTextNode(dateOfBirth);
+      dateText = document.createTextNode(attendee.dateBirth);
 
   dateCell.appendChild(dateText);
+
+  let actionCell = document.createElement('td'),
+    editBtn = document.createElement('button'),
+    deleteBtn = document.createElement('button');
+
+  editBtn.textContent = 'Edit'
+  editBtn.className = 'action-btn'
+  deleteBtn.textContent = 'Delete'
+  deleteBtn.className = 'action-btn'
+
+  editBtn.addEventListener('click', function(){
+    let aIndex = attendeeIndex;
+    showEditAttendee(aIndex);
+  }, false)
+  deleteBtn.addEventListener('click', function(){
+    let aId = attendee.id;
+    deleteAttendee(aId);
+  }, false)
+
+
+  actionCell.appendChild(editBtn);
+  actionCell.appendChild(deleteBtn);
 
    tr.appendChild(firstNameCell)
    tr.appendChild(lastNameCell)
    tr.appendChild(emailCell)
    tr.appendChild(dateCell)
+   tr.appendChild(actionCell)
 
 
    table.appendChild(tr)
@@ -130,11 +155,19 @@ function sendExampleXHR() {
 function getAttendees(callback) {
   let url = 'https://3uc5taw99i.execute-api.us-east-1.amazonaws.com/latest/attendees';
 
-  return sendRequest('GET', url, undefined, function(response){
-    //alert(response)
-    //alert('Jesu stigli?')
-    callback(response)
+  $.ajax({
+    type: 'GET',
+    url: url,
+    data: undefined,
+    success: function(response){
+      //alert(response)
+      //alert('Jesu stigli?')
+      callback(response)
+    }
   })
+
+
+  //return sendRequest('GET', url, undefined, )
 
 }
 
@@ -142,5 +175,22 @@ window.onload = function (){
   getAttendees(function (returnedAttendees){
     attendees = returnedAttendees;
     renderTable(attendees);
+
+    console.log($('#title'))
+  })
+}
+
+function showEditAttendee(index){
+  alert('edit ' + index)
+}
+
+function deleteAttendee(id){
+  let url = `${baseURL}/${id}`
+
+  sendRequest('DELETE', url, undefined, function(){
+    getAttendees(function(returnedAttendees){
+      attendees = returnedAttendees;
+      renderTable(attendees)
+    })
   })
 }
