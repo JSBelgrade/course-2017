@@ -91,3 +91,25 @@ The Home page should be a our course description, the Topics an unordered list w
 2. Clicking Delete button - creates a DELETE request, on status 200 it deletes the row from the table
    Clicking Edit button - shows the form. The form button should now show the EDIT title.
 3. Clicking Attendee EDIT form button should now invoke a PUT request and on status 200, update the attendee row in the table. Advanced - actually send the ID to the API and delete the attendee.
+
+
+## Class 8 - Asynchronous JavaScript + jQuery ajax
+
+### Presentations
+
+- [Class 8 presentation](./presentations/class8.pdf)
+
+### Code
+
+ The Course/Attendee project (HTML, CSS and JavaScript) is available [here](exercises/class8).
+
+### Homework
+1. Replace all your requests with Jquery AJAX 
+2. Implement a Register form  with first name, last name, email, password   
+POST /register     
+and with validation!
+
+3. Implement a Login request form  with email, password 
+  POST /login
+ on success open the / page  
+if the user puts wrong credentials, show an error message
