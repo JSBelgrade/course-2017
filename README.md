@@ -113,3 +113,18 @@ and with validation!
   POST /login
  on success open the / page  
 if the user puts wrong credentials, show an error message
+
+## Class 9 - Cookies, Asynchronous and the Test
+
+### Presentations
+
+- [Class 9 presentation](./presentations/class9.pdf)
+
+### Code
+
+ There were no Course/Attendee projects on the class, just the test.
+ 
+### Test
+1. Read about what is a server and a database
+2. What is Node.js? What is NPM? How to install and use both
+3. Write a Hello World Node.js app
