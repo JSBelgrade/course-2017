@@ -137,3 +137,4 @@ Calculator project (HTML, CSS and JavaScript) is available [here](exercises/clas
 
 ### Video
 
+- [What the heck is the event loop anyway?](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)
