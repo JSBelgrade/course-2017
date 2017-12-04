@@ -129,7 +129,7 @@ Calculator project (HTML, CSS and JavaScript) is available [here](exercises/clas
 2. What is Node.js? What is NPM? How to install and use both
 3. Write a Hello World Node.js app
 
-## Class 10 - Intro to Node.js
+## Class 11 - Intro to Node.js
 
 ### Presentations
 
@@ -138,3 +138,13 @@ Calculator project (HTML, CSS and JavaScript) is available [here](exercises/clas
 ### Video
 
 - [What the heck is the event loop anyway?](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html)
+
+## Class 12 - Intro to React 
+
+### Presentation 
+
+- [Class 10 presentation](./presentations/class12.pdf)
+
+### Code
+
+- [Todo app](./exercises/todo)
